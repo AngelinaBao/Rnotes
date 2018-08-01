@@ -1,3 +1,4 @@
+饼状图
 par(mfrow = c(2,2))
 x <- c(8,12,4,9)
 country_labels <- c("China", "Japan", "US", "Germany", "UK")
@@ -10,3 +11,6 @@ pie3D(x, labels = country_labels, main = "3D Pie Chart")
 mytable <- table(state.region)
 labls <- paste(names(mytable), "\n", mytable)
 pie(mytable, labls, main = "Pie Chart from a table")
+#扇形图
+library(plotrix)
+fan.plot(mytable, labels = labls, main = "Fan Plot")

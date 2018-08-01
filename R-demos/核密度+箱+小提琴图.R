@@ -1,4 +1,4 @@
-#核密度图
+#核密度图(是用于估计随机变量概率密度函数的一种非参数方法)
 install.packages("sm")
 head(mtcars)
 library(sm)

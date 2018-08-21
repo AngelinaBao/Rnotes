@@ -5,7 +5,7 @@ library(data.table)
 update.packages("data.table")
 mtcars_dt <- data.table(mtcars)
 head(mtcars_dt[cyl == 8], 4) #row slection 
-head(mtcars_dt[, .(mpg, cyl, hp)], 4) #column selection, "."
+head(mtcars_dt[, .(mpg, cyl, hp)], 4) #column selection, "." means list
 head(subset(mtcars_dt, cyl == 8, select = c("mpg", "cyl", "hp")), 4) #subset selection
 head(setorder(mtcars_dt, mpg, disp), 7) # set order
 head(setorder(mtcars_dt, mpg, -disp), 7)

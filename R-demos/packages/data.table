@@ -35,5 +35,5 @@ setkey(DT1, x); setkey(DT2, x)
 merge(DT1, DT2) # inner join
 DT1[DT2] # right join for DT1
 DT2[DT1] # left join for DT1
-
-
+DT1[DT2, sum(y+z)] #right join for DT1, then add all y&z values
+DT1[DT2, sum(y+z), by = .EACHI] #right join for DT1, then add all y&z values group by key x

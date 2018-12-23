@@ -1,8 +1,8 @@
 # Data Preprocessing
-library(data.table)
+# library(data.table)
 
 setwd("C:\\Users\\1000257489\\Documents\\Angelina\\RLanguage\\test\\Datascience\\Data_Preprocessing")
-dataset <- fread("Data.csv")
+dataset <- read.csv("Data.csv")
 
 # dealing with missing data
 attach(dataset)
@@ -36,4 +36,5 @@ train_set <- subset(dataset, split == TRUE)
 test_set <- subset(dataset, split == FALSE)
 
 #Feature scaling
-train_set[, 2:3] <- scale(train_set[, 2:3])
+train_set[, 2:3]<- scale(train_set[, 2:3])
+test_set[, 2:3] <- scale(test_set[, 2:3])

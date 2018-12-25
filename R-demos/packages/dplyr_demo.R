@@ -4,13 +4,29 @@ dim(mtcars)
 
 #select: return a subset of the columns of a data frame
 head(select(mtcars, 1:5)) # select 1 to 5 columns of mtcars
+# using %>% 
+mtcars %>% 
+  select(1:5) %>%
+  head()
+
+
 
 names(mtcars)[1:3]
 head(select(mtcars, mpg:disp)) 
 #you can refer to columns in the data frame directly without using the $ operator
+# %>% way
+mtcars %>% 
+  select(mpg:disp) %>%
+  head()
+
 
 head(select(mtcars, -(mpg:disp)))
 # use "-" to exclude the columns
+mtcars %>% 
+  select(-(mpg:disp)) %>%
+  head()
+
+
 #Equivalent Base R
 i <- match("mpg", names(mtcars))
 j <- match("disp", names(mtcars))
@@ -53,3 +69,9 @@ head(select(mtcar_m, mpg, mpg_sub))
 mtcar_s <- mutate(mtcars, mpg_new = factor(1 * (mpg >20), labels = c("slow", "fast")))
 slowfast <- group_by(mtcar_s, mpg_new)
 summarise(slowfast, mpg_mean = mean(mpg, na.rm = TRUE), hp_max = max(hp), wt_median = median(wt))
+
+# %>%
+mtcars %>% 
+  mutate(mpg_new = factor(1 * (mpg>20), labels = c("slow", "fast"))) %>%
+  group_by(mpg_new) %>%
+  summarise(mpg_mean = mean(mpg, na.rm = TRUE), hp_max = max(hp), wt_median = median(wt))
